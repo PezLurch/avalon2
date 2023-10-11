@@ -147,7 +147,6 @@ function construct_new_link (next_page,player_names, voter_names, games_statuses
     return new_link;
   }
 
-
-
+//Dieser Kommentar ist nur im Branch "develop" zu sehen
 
 
