@@ -1,23 +1,26 @@
-var url_string = window.location.href;
-var url = new URL(url_string);
-var number_of_players = Number(url.searchParams.get("numberofplayers"));
-console.log(number_of_players);
+const url_string = window.location.href;
+const url = new URL(url_string);
+const number_of_players = Number(url.searchParams.get("numberofplayers"));
 
 
-if (number_of_players === 5){
-    var voter_number_list = [2,3,2,3,3];
-}
-if (number_of_players === 6){
-    var voter_number_list = [2,3,4,3,4];
-}
-if (number_of_players === 7){
-    var voter_number_list = [2,3,3,4,4];
-}
-if (number_of_players === 8){
-    var voter_number_list = [3,4,4,5,5];
-}
-if (number_of_players === 9){
-    var voter_number_list = [3,4,4,5,5];
+var voter_number_list;
+switch (number_of_players) {
+  case 5:
+    voter_number_list = [2, 3, 2, 3, 3];
+    break;
+  case 6:
+    voter_number_list = [2, 3, 4, 3, 4];
+    break;
+  case 7:
+    voter_number_list = [2, 3, 3, 4, 4];
+    break;
+  case 8:
+  case 9:
+    voter_number_list = [3, 4, 4, 5, 5];
+    break;
+  default:
+    // Handle unexpected cases, if necessary
+    break;
 }
 
 var number_of_games = Number(get_number_of_games(url));

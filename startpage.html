@@ -1,44 +1,34 @@
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="avalon.css">
 <head>
-  <title>Avalon - player's roles</title>
-  <h1 class = 'header'><center>Avalon</center></h1>
+    <title>Avalon startpage</title>
+    <link rel="stylesheet" href="avalon.css">
 </head>
 <body>
 
+    <h1 class='header center'>Avalon</h1>
 
-<p>
-    <center>
-        <button class="button-28" role="button" id = 'letsgo' onclick = letsgo(5)>Let's go with 5 players!</button>
-    </center>
-</p> 
-<p>
-  <center>
-      <button class="button-28" role="button" id = 'letsgo' onclick = letsgo(6)>Let's go with 6 players!</button>
-  </center>
-</p> 
-<p>
-  <center>
-      <button class="button-28" role="button" id = 'letsgo' onclick = letsgo(7)>Let's go with 7 players!</button>
-  </center>
-</p> 
-<p>
-  <center>
-      <button class="button-28" role="button" id = 'letsgo' onclick = letsgo(8)>Let's go with 8 players!</button>
-  </center>
-</p> 
-<p>
-  <center>
-      <button class="button-28" role="button" id = 'letsgo' onclick = letsgo(9)>Let's go with 9 players!</button>
-  </center>
-</p> 
+    <p class="center">
+        <button class="button-28" role="button" onclick="letsgo(5)">Let's go with 5 players!</button>
+    </p>
+    <p class="center">
+        <button class="button-28" role="button" onclick="letsgo(6)">Let's go with 6 players!</button>
+    </p>
+    <p class="center">
+        <button class="button-28" role="button" onclick="letsgo(7)">Let's go with 7 players!</button>
+    </p>
+    <p class="center">
+        <button class="button-28" role="button" onclick="letsgo(8)">Let's go with 8 players!</button>
+    </p>
+    <p class="center">
+        <button class="button-28" role="button" onclick="letsgo(9)">Let's go with 9 players!</button>
+    </p>
 
-<script>
-function letsgo(i){
-    location.assign('playernames.html?numberofplayers='+i);
-}
-</script>
+    <script>
+        function letsgo(i){
+            location.assign('playernames.html?numberofplayers='+i);
+        }
+    </script>
 
 
 </body>

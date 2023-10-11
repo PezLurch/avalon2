@@ -1,14 +1,11 @@
 
 //GET DATA OUT OF URL
-var url_string = window.location.href;
-var url = new URL(url_string);
-var number_of_players = Number(url.searchParams.get("numberofplayers"));
-c = get_player_names(url);
+const url_string = window.location.href;
+const url = new URL(url_string);
+const number_of_players = Number(url.searchParams.get("numberofplayers"));
+const player_names = get_player_names(url);
 
-console.log(number_of_players);
-console.log(c);
-console.log(url.searchParams.get("player"+(1)));
-let v = [];
+const voter_names = [];
 let games_statuses = ['tbd','tbd','tbd','tbd','tbd'];
 let number_of_games = 0;
 //END OF GET DATA OUT OF URL
@@ -47,7 +44,7 @@ for (var i = 1; i < number_of_players+1; i++){
   document.body.appendChild(paragraph);
 }
 for (var i = 0; i < number_of_players; i++) {
-  document.getElementById("button"+(i+1)).innerHTML = c[i];
+  document.getElementById("button"+(i+1)).innerHTML = player_names[i];
 }
 
 var paragraph = document.createElement("p");
@@ -74,18 +71,18 @@ document.body.appendChild(paragraph);
 //END SET UP THE PAGE
 
 
-let new_link = construct_new_link("votenames.html",c,v,games_statuses,number_of_games);
+let new_link = construct_new_link("votenames.html",player_names,voter_names,games_statuses,number_of_games);
 console.log(new_link);
 
 
 
 function showrole(playernumber){
 
-  if (document.getElementById("button"+playernumber).innerHTML === c[playernumber-1]){
+  if (document.getElementById("button"+playernumber).innerHTML === player_names[playernumber-1]){
     document.getElementById("button"+playernumber).innerHTML = roles[playernumber-1];
   }
   else if (document.getElementById("button"+playernumber).innerHTML === roles[playernumber-1]){
-    document.getElementById("button"+playernumber).innerHTML = c[playernumber-1];
+    document.getElementById("button"+playernumber).innerHTML = player_names[playernumber-1];
   }
 }
 
@@ -99,23 +96,23 @@ function go_to_startpage(){
 
 
 function get_player_names(url){
-    var c = ["","","","","","","","",""];
+    var player_names = ["","","","","","","","",""];
     console.log(number_of_players);
     for (var i = 0; i < number_of_players; i++){
       console.log(i);
       console.log(url.searchParams.get("player"+(i+1)));
-    c[i] = url.searchParams.get("player"+(i+1));
+    player_names[i] = url.searchParams.get("player"+(i+1));
     }
-    console.log(c);
-    return c;
+    console.log(player_names);
+    return player_names;
     }
 
 function get_voter_names(url){
-    var v= ["","","",""];//voter names
+    var voter_names= ["","","",""];//voter names
     for (var i = 0; i < 4; i++) {
-        v[i] = url.searchParams.get("voters"+(1+i));
+        voter_names[i] = url.searchParams.get("voters"+(1+i));
     }
-    return v;
+    return voter_names;
     }
 function get_games_statuses() {
     var games_statuses = ["","","","",""];
