@@ -1,35 +1,28 @@
-var url_string = window.location.href;
-var url = new URL(url_string);
-var number_of_players = Number(url.searchParams.get("numberofplayers"));
-console.log(number_of_players);
-
+const url_string = window.location.href;
+const url = new URL(url_string);
+const number_of_players = Number(url.searchParams.get("numberofplayers"));
 
 for (var i = 1; i < number_of_players + 1; i++){
   var paragraph = document.createElement("p");
-  var centering = document.createElement("center");
-    var inputfield = document.createElement("input");
-    inputfield.className = "textbox";
-    inputfield.id = "text" + i;
-    inputfield.type = "text";
-    inputfield.placeholder = "Player "+i;
-    //inputfield.value = "Player "+i;
-    centering.appendChild(inputfield);
-    paragraph.appendChild(centering);
-    document.body.appendChild(paragraph);
+  var inputfield = document.createElement("input");
+  inputfield.className = "textbox";
+  inputfield.id = "text" + i;
+  inputfield.type = "text";
+  inputfield.placeholder = "Player "+i;
+  paragraph.appendChild(inputfield);
+  document.body.appendChild(paragraph);
   }
 
 
 
 var paragraph = document.createElement("p");
-var center = document.createElement("center");
 var button = document.createElement("button");
 button.className = 'button-28';
 button.role = 'button';
 button.id = 'button';
 button.onclick = function() {submit()};
 button.innerHTML = "Submit";
-center.appendChild(button);
-paragraph.appendChild(center);
+paragraph.appendChild(button);
 document.body.appendChild(paragraph);
 
 var paragraph = document.createElement("p");
