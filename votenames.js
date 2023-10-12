@@ -60,28 +60,6 @@ document.body.appendChild(ul);
 
 
 
-
-
-
-
-
-// for (var i = 1; i<number_of_players+1; i++){ 
-//     var paragraph = document.createElement("p");
-//     var center = document.createElement("center");
-//     var box = document.createElement("label");
-//     box.className = "label";
-//     box.for = "player" + i;
-//     box.id = "player" + i +"name";
-//     center.appendChild(box);
-//     box = document.createElement("input");
-//     box.id = "player" + i;
-//     box.type = "checkbox";
-//     center.appendChild(box);
-//     paragraph.appendChild(center);
-//     document.body.appendChild(paragraph);
-// }
-
-
 var submitparagraph = document.createElement("p");
 var submitbutton = document.createElement("button");
 var center = document.createElement("center");
