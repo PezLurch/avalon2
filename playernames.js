@@ -4,11 +4,13 @@ const number_of_players = Number(url.searchParams.get("numberofplayers"));
 
 for (var i = 1; i < number_of_players + 1; i++){
   var paragraph = document.createElement("p");
+  paragraph.className = 'center';
   var inputfield = document.createElement("input");
   inputfield.className = "textbox";
   inputfield.id = "text" + i;
   inputfield.type = "text";
   inputfield.placeholder = "Player "+i;
+  inputfield.value = "Playerine "+i;
   paragraph.appendChild(inputfield);
   document.body.appendChild(paragraph);
   }
@@ -17,6 +19,7 @@ for (var i = 1; i < number_of_players + 1; i++){
 
 var paragraph = document.createElement("p");
 var button = document.createElement("button");
+paragraph.className = 'center';
 button.className = 'button-28';
 button.role = 'button';
 button.id = 'button';
