@@ -2,6 +2,7 @@ const url_string = window.location.href;
 const url = new URL(url_string);
 const number_of_players = Number(url.searchParams.get("numberofplayers"));
 
+var c = get_player_names(url);
 
 var voter_number_list;
 switch (number_of_players) {
@@ -45,7 +46,7 @@ for (var i = 1; i<number_of_players+1; i++){
   li.className = "voteli";
   var boxlabel = document.createElement("label");
   boxlabel.htmlFor = "player" + i;
-  boxlabel.innerHTML = "Player " + i;
+  boxlabel.innerHTML = c[i-1];//"Player " + i;
   box = document.createElement("input");
   box.id = "player" + i;
   box.type = "checkbox";
@@ -58,28 +59,6 @@ for (var i = 1; i<number_of_players+1; i++){
 document.body.appendChild(ul);
 
 
-
-
-
-
-
-
-
-// for (var i = 1; i<number_of_players+1; i++){ 
-//     var paragraph = document.createElement("p");
-//     var center = document.createElement("center");
-//     var box = document.createElement("label");
-//     box.className = "label";
-//     box.for = "player" + i;
-//     box.id = "player" + i +"name";
-//     center.appendChild(box);
-//     box = document.createElement("input");
-//     box.id = "player" + i;
-//     box.type = "checkbox";
-//     center.appendChild(box);
-//     paragraph.appendChild(center);
-//     document.body.appendChild(paragraph);
-// }
 
 
 var submitparagraph = document.createElement("p");
@@ -98,7 +77,7 @@ document.body.appendChild(submitparagraph);
 
 
 
-  var c = get_player_names(url);
+  
   console.log(c);
   var v = get_voter_names(url);
   var games_statuses = get_games_statuses(url);

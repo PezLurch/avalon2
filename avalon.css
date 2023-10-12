@@ -304,3 +304,7 @@
 .center {
   text-align: center;
 }
+
+.p {
+  align-items: center;
+}
