@@ -10,7 +10,7 @@ for (var i = 1; i < number_of_players + 1; i++){
   inputfield.id = "text" + i;
   inputfield.type = "text";
   inputfield.placeholder = "Player "+i;
-  inputfield.value = "Playerine "+i;
+  //inputfield.value = "Playerine "+i;
   paragraph.appendChild(inputfield);
   document.body.appendChild(paragraph);
   }
