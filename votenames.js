@@ -2,7 +2,7 @@ const url_string = window.location.href;
 const url = new URL(url_string);
 const number_of_players = Number(url.searchParams.get("numberofplayers"));
 
-var c = get_player_names(url);
+var player_names = get_player_names(url);
 
 var voter_number_list;
 switch (number_of_players) {
@@ -46,7 +46,7 @@ for (var i = 1; i<number_of_players+1; i++){
   li.className = "voteli";
   var boxlabel = document.createElement("label");
   boxlabel.htmlFor = "player" + i;
-  boxlabel.innerHTML = c[i-1];//"Player " + i;
+  boxlabel.innerHTML = player_names[i-1];//"Player " + i;
   box = document.createElement("input");
   box.id = "player" + i;
   box.type = "checkbox";
@@ -78,12 +78,12 @@ document.body.appendChild(submitparagraph);
 
 
   
-  console.log(c);
+  console.log(player_names);
   var v = get_voter_names(url);
   var games_statuses = get_games_statuses(url);
   draw_games_stats_bar(games_statuses);
   for (var i = 0; i < number_of_players; i++) {
-  document.getElementById("player"+(i+1)+"name").innerHTML = c[i];
+  document.getElementById("player"+(i+1)+"name").innerHTML = player_names[i];
   }
 
 
@@ -98,7 +98,7 @@ document.body.appendChild(submitparagraph);
 //     }
 // }
 
-  var ar = c + v + games_statuses + number_of_games;
+  var ar = player_names + v + games_statuses + number_of_games;
 
 
   function submit(){
@@ -110,7 +110,7 @@ document.body.appendChild(submitparagraph);
       console.log(x + String(document.querySelector('#player'+x).checked));
       players[i] = document.querySelector('#player'+x).checked;
       if (document.querySelector('#player'+x).checked){
-        v[j] = c[i];
+        v[j] = player_names[i];
         j++;
         votes_given++;
         
@@ -121,12 +121,12 @@ document.body.appendChild(submitparagraph);
     
 
     if (votes_given === number_of_voters){
-        let new_link = construct_new_link("vote.html",c, v, games_statuses, number_of_games);
+        let new_link = construct_new_link("vote.html",player_names, v, games_statuses, number_of_games);
         console.log(number_of_games);
         console.log(new_link);
         console.log(games_statuses);
         console.log(v);
-        console.log(c);
+        console.log(player_names);
         location.assign(new_link);
         } else {
         alert("Select "+number_of_voters+ " players!");
@@ -143,13 +143,13 @@ document.body.appendChild(submitparagraph);
   //      &key11=game1status &key12=game2status &key13=game3status &key14=game4status &key15=game5status
   //      &key16=number_of_games
   function get_player_names(url){
-    var c = ["","","","","","","",""];
+    var player_names = ["","","","","","","",""];
     for (var i = 0; i < number_of_players; i++) {
         console.log(url.searchParams.get("player"+(i+1)));
-      c[i] = url.searchParams.get("player"+(i+1));
+      player_names[i] = url.searchParams.get("player"+(i+1));
     }
-    console.log(c);
-    return c;
+    console.log(player_names);
+    return player_names;
   }
   function get_voter_names(url){
     var v= ["","","","",""];//voter names
