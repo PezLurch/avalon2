@@ -1,17 +1,22 @@
-
-//GET DATA OUT OF URL
+//----------------------------\\
+//Getting the info from the URL starts here
+//----------------------------\\
 const url_string = window.location.href;
 const url = new URL(url_string);
 const number_of_players = Number(url.searchParams.get("numberofplayers"));
 const player_names = get_player_names(url);
-
 const voter_names = [];
+
 let games_statuses = ['tbd','tbd','tbd','tbd','tbd'];
 let number_of_games = 0;
-//END OF GET DATA OUT OF URL
+//----------------------------\\
+//Getting the info from the URL ends here
+//----------------------------\\
 
 
-//CREATE LIST OF ROLES
+//----------------------------\\
+//Create random list of roles starts here
+//----------------------------\\
 if (number_of_players === 5){
   var roles = ["Merlin", "Good", "Good","Assassin","Bad"];
 }
@@ -28,10 +33,14 @@ if (number_of_players === 9){
   var roles = ["Merlin", "Good", "Good", "Good","Good","Assassin","Bad","Bad","Bad"];
 }
 roles.sort(() => Math.random()-0.5);
-//END CREATE LIST OF ROLES
+//----------------------------\\
+//Create random list of roles ends here
+//----------------------------\\
 
 
-//SET UP THE PAGE
+//----------------------------\\
+//Create the fields where players can see their roles starts here
+//----------------------------\\
 for (var i = 1; i < number_of_players+1; i++){
   var paragraph = document.createElement("p");
   var center = document.createElement("center");
@@ -46,7 +55,14 @@ for (var i = 1; i < number_of_players+1; i++){
 for (var i = 0; i < number_of_players; i++) {
   document.getElementById("button"+(i+1)).innerHTML = player_names[i];
 }
+//----------------------------\\
+//Create the fields where players can see their roles ends here
+//----------------------------\\
 
+
+//----------------------------\\
+//Create button where players can go to the next page starts here
+//----------------------------\\
 var paragraph = document.createElement("p");
 var center = document.createElement("center");
 var button = document.createElement("button");
@@ -57,7 +73,13 @@ button.innerHTML = "Go to votes!";
 center.appendChild(button);
 paragraph.appendChild(center);
 document.body.appendChild(paragraph);
+//----------------------------\\
+//Create button where players can go to the next page ends here
+//----------------------------\\
 
+//----------------------------\\
+//Create button where players can go to the start page starts here
+//----------------------------\\
 var paragraph = document.createElement("p");
 var center = document.createElement("center");
 var button = document.createElement("button");
@@ -68,13 +90,15 @@ button.innerHTML = "Choose other number of players";
 center.appendChild(button);
 paragraph.appendChild(center);
 document.body.appendChild(paragraph);
-//END SET UP THE PAGE
+//----------------------------\\
+//Create button where players can go to the start page ends here
+//----------------------------\\
 
 
+//----------------------------\\
+//And now all the functions processing stuff.
+//----------------------------\\
 let new_link = construct_new_link("votenames.html",player_names,voter_names,games_statuses,number_of_games);
-console.log(new_link);
-
-
 
 function showrole(playernumber){
 
@@ -92,8 +116,6 @@ function gotovotes(){
 function go_to_startpage(){
     location.assign('startpage.html');
 }
-
-
 
 function get_player_names(url){
     var player_names = ["","","","","","","","",""];
